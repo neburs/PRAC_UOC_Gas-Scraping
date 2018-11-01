@@ -56,7 +56,7 @@ class ScrapingGas:
                 content,
                 key
             )
-            print("S’ha processat la informació de de " + key)
+            print("S’ha processat la informació de " + key)
 
             # Afegim una pausa per evitar el bloqueig per part del servidor o el overloading d’aquest.
             time.sleep(10)
@@ -102,7 +102,7 @@ class ScrapingGas:
             row = [gasType]
 
             for td in tr.findAll('td'):
-                row.append(td.text.replace('\xa0',''))
+                row.append(td.text.replace('\xa0','').replace('>',''))
 
             if row[2]:
                 rows.append(row)
